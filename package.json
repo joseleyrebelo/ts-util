@@ -1,0 +1,35 @@
+{
+  "name": "ts-util",
+  "version": "1.0.0",
+  "description": "React context helpers/tooling.",
+  "author": "Joseley Rebelo",
+  "license": "ISC",
+  "type": "module",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.esjs",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "prepare": "npm run build"
+  },
+  "keywords": [],
+  "peerDependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.2.33",
+    "terser": "^5.24.0",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vite-plugin-dts": "^3.6.3"
+  }
+}

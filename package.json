@@ -1,7 +1,7 @@
 {
   "name": "ts-util",
   "version": "1.0.0",
-  "description": "React context helpers/tooling.",
+  "description": "Typescript utils",
   "author": "Joseley Rebelo",
   "license": "ISC",
   "type": "module",

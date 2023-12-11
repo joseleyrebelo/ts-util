@@ -8,7 +8,8 @@
     "target": "es6",
     "module": "ESNext",
     "moduleResolution": "node",
-    "allowJs": true
+    "allowJs": true,
+    "noImplicitAny": true
   },
   "hooks": ["copy-files"],
   "include": ["src", "srcExcluded/react-app-env.d.ts", "srcExcluded/index.tsx"]

@@ -21,10 +21,7 @@ export declare const isString: (x: any) => x is string;
 
 export declare const newConsolidator: <Unsorted, Sorted>(sorter: (entry: Unsorted) => Sorted) => (initial: Unsorted[]) => Sorted[];
 
-/**
- * Expects object keys to be type string.
- */
-export declare const objKeys: <Type extends object>(data: Type) => StringKeyOf<Type>[];
+export declare const objKeys: <Type extends {}>(data: Type) => (keyof Type)[];
 
 export declare type Prettify<T> = {
     [K in keyof T]: T[K];

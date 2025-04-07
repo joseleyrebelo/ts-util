@@ -6,7 +6,7 @@
   "license": "ISC",
   "type": "module",
   "main": "./dist/index.umd.js",
-  "module": "./dist/index.esjs",
+  "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "style": "./dist/style.css",
   "exports": {
@@ -21,18 +21,14 @@
   ],
   "scripts": {
     "build": "tsc && vite build",
-    "prepare": "npm run build",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "ts": "tsc"
   },
   "keywords": [],
-  "peerDependencies": {},
   "devDependencies": {
-    "@types/react": "^18.2.33",
-    "@typescript-eslint/eslint-plugin": "^6.12.0",
-    "@typescript-eslint/parser": "^6.12.0",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
     "eslint": "^8.54.0",
-    "terser": "^5.24.0",
-    "tslib": "^2.4.1",
     "typescript": "^5.0.2",
     "vite": "^4.3.2",
     "vite-plugin-dts": "^3.6.3"

@@ -1,36 +1,25 @@
-import packageJson from "./package.json";
-
 import path from "path";
 import dts from "vite-plugin-dts";
-
 import { defineConfig } from "vite";
+import pkgJson from "./package.json";
 
-const resolvePath = (str: string) => path.resolve(__dirname, str);
-
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [dts({ rollupTypes: true })],
   build: {
+    minify: true,
+		target: "modules",
     reportCompressedSize: true,
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        keep_classnames: true,
-        keep_fnames: true,
-      },
-    },
     lib: {
-      entry: resolvePath("src/index.ts"),
-      name: "index",
+      name: "ts-util",
+      entry: path.resolve(__dirname, "src/index.ts"),
       fileName: (format) => `index.${format}.js`,
+      formats: ["es", "umd"],
     },
     rollupOptions: {
-      external: [...Object.keys(packageJson.peerDependencies)],
-      // output: {
-      //   globals: {
-      //     react: "React",
-      //   },
-      // },
+      external: [
+				...Object.keys(pkgJson.dependencies || {}),
+				...Object.keys(pkgJson.peerDependencies || {}),
+			],
     },
   },
 });

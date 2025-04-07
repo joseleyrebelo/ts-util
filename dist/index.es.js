@@ -1,42 +1,37 @@
-const objKeys = (data) => Object.keys(data);
-const intersectTypeWrap = (value) => value;
-const newConsolidator = (sorter) => {
-  return (initial) => initial.map((entry) => sorter(entry));
-};
-const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-const buildTypeGuarding = (initialValue) => Object.keys(initialValue).reduce(
-  (result, current) => ({
-    ...result,
-    ["is" + capitalize(current)]: initialValue[current]
+const i = (e) => Object.keys(e), o = (e) => e.charAt(0).toUpperCase() + e.slice(1), r = (e) => e, p = (e) => (t) => t.map((n) => e(n)), s = (e) => Object.keys(e).reduce(
+  (t, n) => ({
+    ...t,
+    ["is" + o(n)]: e[n]
   }),
   {}
-);
-const typeGuardingBase = {
+), c = {
   // @notice - alternatives : typeof x === "string" || x instanceof String;
-  string: (x) => x === x + "",
-  object: (x) => typeof x === "object",
-  boolean: (x) => typeof x === "boolean",
-  array: (x) => x instanceof Array,
-  date: (x) => x instanceof Date,
-  number: (x) => typeof x === "number"
+  string: (e) => e === e + "",
+  object: (e) => typeof e == "object",
+  boolean: (e) => typeof e == "boolean",
+  array: (e) => e instanceof Array,
+  date: (e) => e instanceof Date,
+  number: (e) => typeof e == "number",
+  function: (e) => e instanceof Function
   // Custom types
   // null: (x: any) => x === null,
   // undefined: (x: any) => typeof x === "undefined",
   // empty: (x: any) => x === null || !(Object.keys(x) || x).length,
   // falsy: (x: any) => typeof x === "undefined" ||  x === null || !(Object.keys(x) || x).length,
-};
-const typeGuarding = buildTypeGuarding(typeGuardingBase);
-const { isString, isObject, isBoolean, isArray, isDate, isNumber } = typeGuarding;
+}, a = s(c), { isString: y, isObject: b, isBoolean: u, isArray: d, isDate: f, isNumber: j, isFunction: g } = a, l = (e, t) => t();
 export {
-  intersectTypeWrap,
-  isArray,
-  isBoolean,
-  isDate,
-  isNumber,
-  isObject,
-  isString,
-  newConsolidator,
-  objKeys,
-  typeGuarding,
-  typeGuardingBase
+  o as capitalize,
+  r as intersectTypeWrap,
+  d as isArray,
+  u as isBoolean,
+  f as isDate,
+  g as isFunction,
+  j as isNumber,
+  b as isObject,
+  y as isString,
+  p as newConsolidator,
+  i as objKeys,
+  l as typeGuard,
+  a as typeGuarding,
+  c as typeGuardingBase
 };
